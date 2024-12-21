@@ -1,0 +1,4 @@
+baseURL = 'https://mingtommy.dev/'
+languageCode = 'zh-hk'
+title = 'The Programming Cat'
+theme = 'PaperMod'
