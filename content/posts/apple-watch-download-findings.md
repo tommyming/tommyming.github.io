@@ -5,8 +5,6 @@ date = 2025-01-06T20:30:00+08:00
 draft = false
 +++
 
-# Apple Watch Download Task Foundings
-
 ### Introduction
 
 ``` Log
@@ -42,7 +40,7 @@ Within this part, I will **Exclude Situation 1**, as the dim and cancel behaviou
 #### Context
 There are few possible problem within the whole flow, but before we begin, we can take a look at the flow first.
 
-[![Download Task Flow](https://i.postimg.cc/5NxFqmCn/Screenshot.png)](https://postimg.cc/Jt2nRZKk)
+![Download Task Flow](https://i.postimg.cc/5NxFqmCn/Screenshot.png)
 
 As you can see, the download request will be triggered by user manually, by first requesting the download link from the authenicated API link, then perform downloadTask base on the link, in `.m4a` file format.
 
@@ -199,9 +197,9 @@ It is always good to use simulator to test out the UI Layout and User Behaviours
 
 2. **URLSession Configuration on watchOS**
 After frustrating with the problem for weeks, keep thinking in a wrong route. I started to take a step, start looking the `URLSessionConfiguration` again, to see if there any possible things that I might be missing. Then I found something below:
-[waitsForConnectivity](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/2908812-waitsforconnectivity)
-[allowsCellularAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409406-allowscellularaccess)
-[allowsConstrainedNetworkAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/3235751-allowsconstrainednetworkaccess)
+[waitsForConnectivity](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/2908812-waitsforconnectivity)<br/>
+[allowsCellularAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409406-allowscellularaccess)<br />
+[allowsConstrainedNetworkAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/3235751-allowsconstrainednetworkaccess)<br />
 After I have set the 3 things as `true` in the confirguation setup, the download suddenly works, no matter sync call or async call.
 
 > I am not sure 100% sure if all of these 3 configuration properties are needed, but **as long as the code works, don't touch it**.
@@ -240,7 +238,7 @@ Last but not least, remind yourself, **don't get mislead by the similar founding
 With preserverance, plus a tiny bit of luck, you will solve the problem eventually, or at least get something valuable from it.
 
 ### Appendix + References
-[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762)
-[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension)
-[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)
-[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)
+[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762) <br />
+[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension) <br/>
+[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)<br />
+[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)<br />
