@@ -1,6 +1,6 @@
 +++
 title = 'Apple Watch Download Foundings'
-summary = 'How does Apple Watch Download Things'
+summary = 'How does Apple Watch Download Stuff?'
 date = 2025-01-06T20:30:00+08:00
 draft = false
 +++
@@ -133,10 +133,8 @@ let destination: DownloadRequest.Destination = { (_, response) in
                 .response { response in
                     switch response.result {
                     case let .success(url):
-                        log.info("[NetworkService] \(#function) Download Success.")
                         continuation.resume(returning: url)
                     case let .failure(error):
-                        log.error("[NetworkService] \(#function) Download Error: \(error.localizedDescription)")
                         continuation.resume(throwing: error)
                     }
                 }

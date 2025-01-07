@@ -12,8 +12,8 @@ name = "github"
 url = "https://github.com/tommyming"
 
 [[params.socialIcons]]
-name = "email"
-url = "tommyhonym@gmail.com"
+name = "linkedin"
+url = "https://www.linkedin.com/in/tommy-han-236a85144/"
 
 [params.assets]
 favicon = "/favicon.ico"
