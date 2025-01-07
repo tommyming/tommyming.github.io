@@ -1,6 +1,6 @@
 +++
 title = 'Apple Watch Download Foundings'
-summary = 'Self Introduction'
+summary = 'How does Apple Watch Download Things'
 date = 2025-01-06T20:30:00+08:00
 draft = false
 +++
