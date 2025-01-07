@@ -197,10 +197,11 @@ No matter how well the simulator can mimic, it is under Mac's Architecture, inst
 > e.g. `WatchConnectivity` can only be tested through real device, even in Apple's Code Example.
 
 2. **URLSession Configuration on watchOS**
-After frustrating with the problem for weeks, keep thinking in a wrong route. I started to take a step, start looking the `URLSessionConfiguration` again, to see if there any possible things that I might be missing. Then I found something below:
+After frustrating with the problem for weeks, keep thinking in a wrong route. I started to take a step, start looking the `URLSessionConfiguration` again, to see if there any possible things that I might be missing. Then I found something below:\
 [waitsForConnectivity](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/2908812-waitsforconnectivity)\
 [allowsCellularAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409406-allowscellularaccess)\
 [allowsConstrainedNetworkAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/3235751-allowsconstrainednetworkaccess)\
+<br>
 After I have set the 3 things as `true` in the confirguation setup, the download suddenly works, no matter sync call or async call.
 
 > I am not sure 100% sure if all of these 3 configuration properties are needed, but **as long as the code works, don't touch it**.
@@ -239,7 +240,7 @@ Last but not least, remind yourself, **don't get mislead by the similar founding
 With preserverance, plus a tiny bit of luck, you will solve the problem eventually, or at least get something valuable from it.
 
 ### Appendix + References
-[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762)
-[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension)
-[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)
-[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)
+[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762)\
+[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension)\
+[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)\
+[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)\

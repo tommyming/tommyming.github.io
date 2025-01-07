@@ -8,7 +8,7 @@ draft = false
 ### About Me (Simple Version)
 
 Hello, This is **Tommy** from Hong Kong.
-I am first a **Cat Slave**, then a **Open-source Lover**, and finally a **Mobile Engineer**.
+I am first a **Cat Slave**, a **Street Photographer**, then a **Open-source Lover**, finally a **Software Engineer**.
 
 This blog is originally from [Substack](https://mingtommy.substack.com), but yes I want more freedom and less pressure, I moved to github pages, and use SSG(Static Site Generator) to build this blog.
 <hr>
