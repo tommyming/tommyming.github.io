@@ -11,11 +11,11 @@ Hello, This is **Tommy** from Hong Kong.
 I am first a **Cat Slave**, a **Street Photographer**, then a **Open-source Lover**, finally a **Software Engineer**.
 
 This blog is originally from [Substack](https://mingtommy.substack.com), but yes I want more freedom and less pressure, I moved to github pages, and use SSG(Static Site Generator) to build this blog.
-<hr>
+---
 
 ### Something More
 #### What's the articles about?
-Well, most of them are about **Mobile Development**, **Open-source**, **Photography**, and **Cats**. But sometimes I may share something about **Software Engineering** and **AI**. (Yeah you know, AI is the future, right? :'))
+Well, most of them are about **Mobile Development**, **Open-source**, **Photography**, and **Cats**. But sometimes I may share something about **Software Engineering** and **AI**. (Yeah you know, AI is the future, right? :')
 
 #### Programming Languages?
 **Swift** and **Kotlin** are my most comfortable programming languages (When you need to write both OS Apps in Native). 
@@ -36,12 +36,12 @@ Personal Comment: Dislike **Javascript** sometimes.
 
 #### What did you do apart from coding in front of the screen?
 I indeed do some photos for interest, mainly **Street Photography** and **Urban Photography**
-<hr>
+---
 
 ### Something Extra
 Check me out (and feel free to chat with me) from below!
 [Linkedin](https://www.linkedin.com/in/tommy-han-236a85144/)
 [Github](https://github.com/tommyming)
-<hr>
+---
 
 This is the end.

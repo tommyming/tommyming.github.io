@@ -2,3 +2,15 @@ baseURL = 'https://mingtommy.dev/'
 languageCode = 'zh-hk'
 title = 'The Programming Cat'
 theme = 'PaperMod'
+
+[params.homeInfoParams]
+Title = "Welcome The Programming Cat."
+Content = "A blog with Cats, Programming, Photos and more."
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/tommyming"
+
+[[params.socialIcons]]
+name = "email"
+url = "tommyhonym@gmail.com"
