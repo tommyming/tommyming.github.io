@@ -7,7 +7,7 @@ draft = false
 
 ### Introduction
 
-``` Log
+```swift
 2024-12-31 11:46:37.906547+0800 XXXXXXXX Watch App[340:23913] PDTask <E0CE93E2-86C0-4574-860D-233758C0163A>.<2> finished with error [9] Error Domain=NSPOSIXErrorDomain Code=9 "Bad file descriptor" UserInfo={_kCFStreamErrorCodeKey=9, NSErrorPeerAddressKey={length = 28, bytes = 0x1c1ef516 00000000 fd746572 6d6e7573 ... 6ed931cd 00000000 }, _kCFStreamErrorDomainKey=1, _NSURLErrorRelatedURLSessionTaskErrorKey=(
     "LocalDataPDTask <E0CE93E2-86C0-4574-860D-233758C0163A>.<2>",
     "LocalDataTask <E0CE93E2-86C0-4574-860D-233758C0163A>.<2>"
@@ -94,7 +94,7 @@ The most possible root cause is in here. Same with SwiftUI, it has a mixed comme
 There are **3** ways you can perform download task through `Alamofire`:
 
 1. This implementation uses `AsyncThrowingStream` to handle the download progress update of the request, returns the URL in the response, throws error if there is any.
-``` Swift!
+``` Swift
 let destination: DownloadRequest.Destination = { (_, response) in
             let fileURL = destinationDirectory.appendingPathComponent(response.suggestedFilename!)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -121,7 +121,7 @@ let destination: DownloadRequest.Destination = { (_, response) in
 ```
 
 2. This implementation uses `Continuation` to wrap the sync call, to allow the outside to use async operations properly.
-``` Swift!
+``` Swift
 let destination: DownloadRequest.Destination = { (_, response) in
             let fileURL = destinationDirectory.appendingPathComponent(response.suggestedFilename!)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -145,7 +145,7 @@ let destination: DownloadRequest.Destination = { (_, response) in
 ```
 
 3. This implementation uses `Alamofire`'s original async support, to get the fileUrl:
-```Swift!
+```Swift
 let destination: DownloadRequest.Destination = { (_, response) in
             let fileURL = destinationDirectory.appendingPathComponent(response.suggestedFilename!)
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -192,14 +192,15 @@ The biggest difference here is that. In the project I am working on, the
 
 ### Am I Missing Something?
 1. **Simulator Limitation**
-It is always good to use simulator to test out the UI Layout and User Behaviours. But the main problem is, it is not real device. No matter how well the simulator can mimic, it is under Mac's Architecture, instead of the real device's architecture you build for, there might be some limtations.
+It is always good to use simulator to test out the UI Layout and User Behaviours. But the main problem is, it is not real device.\ 
+No matter how well the simulator can mimic, it is under Mac's Architecture, instead of the real device's architecture you build for, there might be some limtations.
 > e.g. `WatchConnectivity` can only be tested through real device, even in Apple's Code Example.
 
 2. **URLSession Configuration on watchOS**
 After frustrating with the problem for weeks, keep thinking in a wrong route. I started to take a step, start looking the `URLSessionConfiguration` again, to see if there any possible things that I might be missing. Then I found something below:
-[waitsForConnectivity](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/2908812-waitsforconnectivity)<br/>
-[allowsCellularAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409406-allowscellularaccess)<br />
-[allowsConstrainedNetworkAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/3235751-allowsconstrainednetworkaccess)<br />
+[waitsForConnectivity](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/2908812-waitsforconnectivity)\
+[allowsCellularAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409406-allowscellularaccess)\
+[allowsConstrainedNetworkAccess](https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/3235751-allowsconstrainednetworkaccess)\
 After I have set the 3 things as `true` in the confirguation setup, the download suddenly works, no matter sync call or async call.
 
 > I am not sure 100% sure if all of these 3 configuration properties are needed, but **as long as the code works, don't touch it**.
@@ -238,7 +239,7 @@ Last but not least, remind yourself, **don't get mislead by the similar founding
 With preserverance, plus a tiny bit of luck, you will solve the problem eventually, or at least get something valuable from it.
 
 ### Appendix + References
-[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762) <br />
-[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension) <br/>
-[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)<br />
-[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)<br />
+[Bad File Descriptor](https://forums.developer.apple.com/forums/thread/729762)
+[Cannot Build Watch App To Real Device](https://stackoverflow.com/questions/56238712/xcode-stuck-with-loading-wheel-after-adding-apple-watch-extension)
+[Cannot Reconnect To Apple Watch Device](https://forums.developer.apple.com/forums/thread/734694)
+[Major Regressions in Apple Watch Development Support](https://forums.developer.apple.com/forums/thread/750801#750801021)
