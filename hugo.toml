@@ -15,6 +15,10 @@ url = "https://github.com/tommyming"
 name = "linkedin"
 url = "https://www.linkedin.com/in/tommy-han-236a85144/"
 
+[[params.socialIcons]]
+name = "email"
+url = "mailto:tommyhonym@gmail.com"
+
 [params.assets]
 favicon = "/favicon.ico"
 favicon16x16 = "/favicon-16x16.png"
