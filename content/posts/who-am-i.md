@@ -11,7 +11,6 @@ Hello, This is **Tommy** from Hong Kong.
 I am first a **Cat Slave**, a **Street Photographer**, then a **Open-source Lover**, finally a **Software Engineer**.
 
 This blog is originally from [Substack](https://mingtommy.substack.com), but yes I want more freedom and less pressure, I moved to github pages, and use SSG(Static Site Generator) to build this blog.
----
 
 ### Something More
 #### What's the articles about?
@@ -35,13 +34,5 @@ Personal Comment: Dislike **Javascript** sometimes.
 - Ladybird Swift Approach Study
 
 #### What did you do apart from coding in front of the screen?
-I indeed do some photos for interest, mainly **Street Photography** and **Urban Photography**
----
-
-### Something Extra
-Check me out (and feel free to chat with me) from below!
-[Linkedin](https://www.linkedin.com/in/tommy-han-236a85144/)
-[Github](https://github.com/tommyming)
----
-
-This is the end.
+I indeed do some photos for interest, mainly **Street Photography** and **Urban Photography**.
+Sometimes I will show some images here, and sometimes on unsplash.
