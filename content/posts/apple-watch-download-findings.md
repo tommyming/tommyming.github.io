@@ -212,7 +212,9 @@ After I have set the 3 things as `true` in the confirguation setup, the download
 > I am not sure 100% sure if all of these 3 configuration properties are needed, but **as long as the code works, don't touch it**.
 
 ### Possible Causes
-At first, I would like to "_git blame_" the issue to **Swift Concurrency**. Since I have faced a lot of problem when dealing with concurrency. But after I tweaked the properties in the `URLSessionConfiguration`, it works. It seems there might be some pre-defined conditions that you might need to cater, when you are performing download-related tasks.
+Originally, I would like to "_git blame_" the issue to **Swift Concurrency**. Since I have faced a lot of problems when dealing with concurrency(especially on Apple Watch, which thread and process resources are limited).\
+
+But after I tweaked the properties in the `URLSessionConfiguration`, it works fine. Seems there might be some pre-defined conditions that you might need to cater, when you are performing download-related tasks.
 
 If you didn't change the Configuration, various error will occur, which makes you jumping into different rabbit holes, trying to find where the problem is.
 
