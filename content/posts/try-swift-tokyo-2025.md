@@ -81,9 +81,3 @@ try! Swift Tokyo 2025 was more than a technical conference—it was a celebratio
 
 > “Developers from all over the world gather for tips and tricks and the latest case studies of development using Swift. Developers from all over the world will gather here to showcase our Swift knowledge and skills, and to collaborate with each other.”  
 > — try! Swift Tokyo official site
-
----
-
-*For more information and official photos, visit the [try! Swift Tokyo website][1].*
-
----
