@@ -39,7 +39,7 @@ init() {
 
 ---
 
-> **The below code is the implementation that uses the object above, 
+> **The below code is the implementation that uses the object above,
 which is a "DNS Address Finder"**
 
 ``` swift
@@ -81,7 +81,7 @@ private func getServers() -> [res_9_sockaddr_union] {
 
 The library we are using from the above code is `libresolv`, which is mainly for creating, sending, and interpreting packets to the Internet domain name servers.
 
-> In case if you are interested, you can visit the link below, 
+> In case if you are interested, you can visit the link below,
 the code is actually open-source by Apple:
 [Github Repository](https://github.com/apple-oss-distributions/libresolv)
 
@@ -136,4 +136,4 @@ For me, I think the original is way much cleaner, which is easy to understand wh
 
 I am not exactly sure why you will need to manually allocate a chunk of memory, and create a pointer for the object to the memory chunk. I would love to have the old version instead, cleaner syntax and less overhead on codebase.
 
-#### Thanks for reading, and see you in the next article series!!
+**Thanks for reading, and see you in the next article series!!**
