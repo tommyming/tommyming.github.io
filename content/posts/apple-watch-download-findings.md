@@ -40,7 +40,9 @@ Within this part, I will **Exclude Situation 1**, as the dim and cancel behaviou
 #### Context
 There are few possible problem within the whole flow, but before we begin, we can take a look at the flow first.
 
-![Download Task Flow](https://i.postimg.cc/5NxFqmCn/Screenshot.png)
+![Download Task Flow](https://images.mingtommy.dev/download-service.png)
+
+> Edit (2025-05-30) : There are actually logic changes, but the implementations are mostly the same.
 
 As you can see, the download request will be triggered by user manually, by first requesting the download link from the authenicated API link, then perform downloadTask base on the link, in `.m4a` file format.
 

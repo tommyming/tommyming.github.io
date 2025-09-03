@@ -1,6 +1,6 @@
 +++
-title = 'Blurring Views on Your Apple Device'
-summary = 'Usage of Gaussian Blur in SwiftUI and UIKit'
+title = 'Blurring Effects '
+summary = 'Usage of Gaussian Blur and Different Blurs in SwiftUI and UIKit'
 date = 2025-01-26T20:30:00+08:00
 draft = true
 +++
@@ -29,7 +29,6 @@ view.addSubview(blurredEffectView)
 // This is a UIKit UIImageView, which you add a mask/layer on top of the image.
 ```
 > `UIKit` actually provides us with more ways to blur a view properly. The above is just one of the example doing it.
-
 
 ### Introduction
 SwiftUI and UIKit offer different approaches to implementing Gaussian blur effects in iOS applications.
