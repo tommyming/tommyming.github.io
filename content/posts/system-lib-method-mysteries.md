@@ -1,5 +1,5 @@
 +++
-title = 'Changes of System-Level Library Method Calls in latest iOS' 
+title = 'Changes of System-Level Library Method Calls in iOS 18.'
 summary = 'Method implementation changes since iOS 18.4 SDK'
 date = 2025-06-29T21:00:00+08:00
 draft = false
@@ -30,7 +30,7 @@ init() {
           res_9_ninit(state) == EXIT_SUCCESS else {
         return
     }
-    
+
     self._state = state
 }
 ```
@@ -56,21 +56,21 @@ private func getDNSAddresses(addressInfo: res_9_sockaddr_union) -> String {
                                    NI_NUMERICHOST)
             }
         }
-        
+
         return String(cString: hostBuffer)
 }
-    
+
 private func getServers() -> [res_9_sockaddr_union] {
     guard let state = _state else { return [] }
-        
+
     let maxServers = NI_MAXSERV
-        
+
     var servers = [res_9_sockaddr_union](repeating: res_9_sockaddr_union(), count: Int(maxServers))
-        
+
     let foundServers = Int(res_9_getservers(state, &servers, maxServers))
-        
+
     let serverArray = Array(servers[0 ..< foundServers]).filter { $0.sin.sin_len > 0 }
-        
+
     return serverArray
 }
 ```
