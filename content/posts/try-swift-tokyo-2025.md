@@ -5,6 +5,7 @@ date = 2025-04-14T20:30:00+08:00
 draft = false
 +++
 
+
 > try! Swift Tokyo 2025: A Vibrant Gathering of the Global Swift Community
 
 try! Swift Tokyo 2025, held from April 9th to 11th at Tachikawa Stage Garden in Tokyo, brought together developers from around the world for three days of learning, collaboration, and celebration of all things Swift[1][2][3]. This year’s event was a testament to the strength and diversity of the Swift community, featuring engaging talks, interactive booths, and memorable social experiences.
