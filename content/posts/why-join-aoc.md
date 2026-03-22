@@ -48,6 +48,6 @@ I wonder how would AoC evolved in the future, or maybe probably this year.
 
 p.s. If you would like to support the website, you can join __AoC++__, which is shown in the picture below:
 
-[website support page](https://images.mingtommy.dev/aoc-3.png)
+![website support page](https://images.mingtommy.dev/aoc-3.png)
 
 Thanks for reading, see you in the next article! (probably a more technical one.)
