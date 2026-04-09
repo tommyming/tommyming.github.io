@@ -12,7 +12,7 @@ params:
     - name: linkedin
       url: https://www.linkedin.com/in/tommy-han-236a85144/
     - name: email
-      url: mailto:tommyhonym@gmail.com
+      url: mailto:hello@mingtommy.dev
   assets:
     favicon: /favicon.ico
     favicon16x16: /favicon-16x16.png
