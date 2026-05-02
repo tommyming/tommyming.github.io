@@ -1,22 +1,19 @@
 baseURL: https://mingtommy.dev/
 languageCode: zh-hk
 title: The Programming Cat
-theme: PaperModX
+theme: paper
 params:
-  homeInfoParams:
-    Title: Welcome The Programming Cat.
-    Content: A blog with Cats, Programming, Photos and more.
-  socialIcons:
-    - name: github
-      url: https://github.com/tommyming
-    - name: linkedin
-      url: https://www.linkedin.com/in/tommy-han-236a85144/
-    - name: email
-      url: mailto:hello@mingtommy.dev
-  assets:
-    favicon: /favicon.ico
-    favicon16x16: /favicon-16x16.png
-    favicon32x32: /favicon-32x32.png
-    apple_touch_icon: /apple-touch-icon.png
-  TocOpen: true
-  TocSide: right
+  color: linen
+  github: tommyming
+  linkedin: tommy-han-236a85144
+  rss: true
+  avatar: https://github.com/tommyming.png
+  name: Tommy
+  bio: A blog with cats, programming, photos and more.
+  favicon: favicon.ico
+  appleTouchIcon: apple-touch-icon.png
+  disablePostNavigation: false
+  disableHLJS: false
+  monoDarkIcon: true
+  mainSections:
+    - posts
