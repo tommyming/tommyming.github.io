@@ -3,6 +3,7 @@ title = 'Blurring Effects '
 summary = 'Usage of Gaussian Blur and Different Blurs in SwiftUI and UIKit'
 date = 2025-01-26T20:30:00+08:00
 draft = true
+categories = ['coding']
 +++
 
 ### TLDR

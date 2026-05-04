@@ -3,6 +3,7 @@ title = 'I went to try! Swift Tokyo 2025!'
 summary = 'A very good Swift Conference for the community'
 date = 2025-04-14T20:30:00+08:00
 draft = false
+categories = ['coding']
 +++
 
 

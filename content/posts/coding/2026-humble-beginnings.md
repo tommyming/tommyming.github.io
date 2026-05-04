@@ -3,6 +3,7 @@ title = 'Humble Beginnings in 2026'
 summary = 'Changes in 2026'
 date = 2026-03-06T16:00:00+08:00
 draft = false
+categories = ['coding']
 +++
 
 ## "I have written a 2026 wish list, let's get a strong start in 2026!"

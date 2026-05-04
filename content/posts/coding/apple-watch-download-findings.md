@@ -3,6 +3,7 @@ title = 'Apple Watch Download Foundings'
 summary = 'How does Apple Watch Download Stuff?'
 date = 2025-01-06T20:30:00+08:00
 draft = false
+categories = ['coding']
 +++
 
 ### Introduction

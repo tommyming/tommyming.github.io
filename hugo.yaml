@@ -2,6 +2,25 @@ baseURL: https://mingtommy.dev/
 languageCode: zh-hk
 title: The Programming Cat
 theme: paper
+menu:
+  main:
+    - identifier: coding
+      name: Coding
+      url: /categories/coding/
+      weight: 10
+    - identifier: cats
+      name: Cats
+      url: /categories/cats/
+      weight: 20
+    - identifier: streets
+      name: Streets
+      url: /categories/streets/
+      weight: 30
+
+taxonomies:
+  category: categories
+  tag: tags
+
 params:
   color: linen
   github: tommyming

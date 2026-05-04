@@ -3,6 +3,7 @@ title = 'Changes of System-Level Library Method Calls in iOS 18.'
 summary = 'Method implementation changes since iOS 18.4 SDK'
 date = 2025-06-29T21:00:00+08:00
 draft = false
+categories = ['coding']
 +++
 
 ### Before we begin

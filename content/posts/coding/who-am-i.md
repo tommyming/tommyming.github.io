@@ -3,6 +3,7 @@ title = 'Who am I?'
 summary = 'Self Introduction'
 date = 2024-12-22T00:41:00+08:00
 draft = false
+categories = ['coding']
 +++
 
 ### About Me (Simple Version)
