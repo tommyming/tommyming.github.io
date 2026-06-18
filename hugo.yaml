@@ -1,7 +1,20 @@
 baseURL: https://mingtommy.dev/
-languageCode: zh-hk
-title: The Programming Cat
-theme: paper
+theme: hugo-blog-awesome
+locale: en-us
+defaultContentLanguage: en-us
+title: Tommy Han
+description: Personal Blog
+
+params:
+  defaultColor: auto
+  rss: true
+  favicon: favicon.ico
+  avatar: https://github.com/tommyming.png
+
+  social:
+    - name: github
+      url: https://github.com/tommyming
+
 menu:
   main:
     - identifier: coding
@@ -16,23 +29,3 @@ menu:
       name: Streets
       url: /categories/streets/
       weight: 30
-
-taxonomies:
-  category: categories
-  tag: tags
-
-params:
-  color: linen
-  github: tommyming
-  linkedin: tommy-han-236a85144
-  rss: true
-  avatar: https://github.com/tommyming.png
-  name: Tommy
-  bio: A blog with cats, programming, photos and more.
-  favicon: favicon.ico
-  appleTouchIcon: apple-touch-icon.png
-  disablePostNavigation: false
-  disableHLJS: false
-  monoDarkIcon: true
-  mainSections:
-    - posts
