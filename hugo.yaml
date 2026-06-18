@@ -8,8 +8,17 @@ description: Personal Blog
 params:
   defaultColor: auto
   rss: true
-  favicon: favicon.ico
-  avatar: https://github.com/tommyming.png
+  favicon:
+    png: favicon/favicon.png
+    svg: favicon/favicon.svg
+    ico: favicon/favicon.ico
+    apple: favicon/apple-touch-icon.png
+    manifest: favicon/site.webmanifest
+  author:
+    avatar: https://github.com/tommyming.png
+    intro: Tommy Han
+    name: A Programming Cat
+    description: A personal blog, mostly about code, sometimes photography.
 
   social:
     - name: github
