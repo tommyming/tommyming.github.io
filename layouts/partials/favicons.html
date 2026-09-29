@@ -1,0 +1,16 @@
+{{ with resources.Get "icons/apple-touch-icon.png" }}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with resources.Get "icons/favicon-32x32.png" }}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with resources.Get "icons/favicon-16x16.png" }}
+<link rel="icon" type="image/png" sizes="16x16" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with resources.Get "icons/favicon.svg" }}
+<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}">
+{{ end }}
+{{ with resources.Get "icons/favicon.ico" }}
+{{ $ico := . | resources.Copy "favicon.ico" }}
+<link rel="shortcut icon" href="{{ $ico.RelPermalink }}">
+{{ end }}

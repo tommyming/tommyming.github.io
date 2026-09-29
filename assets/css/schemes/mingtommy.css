@@ -1,0 +1,43 @@
+/* mingtommy scheme — mirrors the hugo-blog-awesome palette.
+   Light: background #ffffff, text #434648, links #003fff (hover #0036c7).
+   Dark:  background #131418, text #ffffff,  links #77a8fd (hover #5292ff).
+   Base neutral doubles as the light background (bg-neutral) and the
+   dark-mode text colour (dark:text-neutral), so it stays white. */
+:root {
+  /* Neutral */
+  --color-neutral: 255, 255, 255;
+  --color-neutral-50: 246, 247, 248;
+  --color-neutral-100: 236, 236, 236;
+  --color-neutral-200: 210, 199, 199;
+  --color-neutral-300: 188, 192, 196;
+  --color-neutral-400: 150, 156, 164;
+  --color-neutral-500: 118, 127, 135;
+  --color-neutral-600: 107, 120, 134;
+  --color-neutral-700: 74, 77, 86;
+  --color-neutral-800: 19, 20, 24;   /* #131418 dark background */
+  --color-neutral-900: 67, 70, 72;   /* #434648 light text */
+
+  /* Primary — link blues */
+  --color-primary-50: 230, 240, 255;
+  --color-primary-100: 204, 224, 255;
+  --color-primary-200: 163, 196, 255;
+  --color-primary-300: 132, 179, 255;
+  --color-primary-400: 119, 168, 253; /* #77a8fd dark-mode link */
+  --color-primary-500: 0, 63, 255;    /* #003fff link */
+  --color-primary-600: 0, 54, 199;    /* #0036c7 link hover */
+  --color-primary-700: 0, 45, 166;
+  --color-primary-800: 0, 37, 133;
+  --color-primary-900: 0, 30, 106;
+
+  /* Secondary — quiet grays */
+  --color-secondary-50: 250, 250, 250;
+  --color-secondary-100: 245, 245, 245;
+  --color-secondary-200: 229, 229, 229;
+  --color-secondary-300: 214, 214, 214;
+  --color-secondary-400: 175, 175, 175;
+  --color-secondary-500: 130, 130, 130;
+  --color-secondary-600: 110, 110, 110;
+  --color-secondary-700: 85, 85, 85;
+  --color-secondary-800: 40, 40, 40;
+  --color-secondary-900: 25, 25, 25;
+}

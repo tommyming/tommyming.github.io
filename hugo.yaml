@@ -1,39 +1,81 @@
 baseURL: https://mingtommy.dev/
-theme: hugo-blog-awesome
-defaultContentLanguage: en-us
+theme: blowfish
+defaultContentLanguage: en
 title: Tommy Han
 
 languages:
-  en-us:
+  en:
     label: English
     locale: en-US
     weight: 1
+    params:
+      displayName: EN
+      isoCode: en-US
+      dateFormat: 2 Jan 2006
+      description: Personal Blog
+      author:
+        name: Tommy Han
+        image: avatar.png
+        bio: A personal blog, mostly about code, sometimes photography.
+        links:
+          - github: https://github.com/tommyming
 
 markup:
   highlight:
     noClasses: false
 
 params:
-  sitename: Tommy Han
-  defaultColor: auto
-  description: Personal Blog
+  colorScheme: mingtommy
+  defaultAppearance: light
+  autoSwitchAppearance: true
+  enableSearch: false
+  enableCodeCopy: false
   mainSections:
     - posts
-  rssFeedDescription: summary
-  author:
-    avatar: avatar.png
-    intro: Tommy Han
-    name: Tommy Han
-    description: A Programming Cat. A personal blog, mostly about code, sometimes photography.
-  webmanifest:
-    name: Programming Cat
-    short_name: Programming Cat
-    theme_color: "#ffffff"
-    background_color: "#ffffff"
-    display: standalone
-  socialIcons:
-    - name: github
-      url: https://github.com/tommyming
+
+  header:
+    layout: basic
+
+  footer:
+    showMenu: false
+    showCopyright: true
+    showThemeAttribution: true
+    showAppearanceSwitcher: true
+    showScrollToTop: true
+
+  homepage:
+    layout: profile
+    showRecent: true
+    showRecentItems: 5
+    showMoreLink: true
+    showMoreLinkDest: /posts/
+
+  article:
+    showDate: true
+    showDateUpdated: false
+    showAuthor: false
+    showReadingTime: false
+    showWordCount: false
+    showBreadcrumbs: false
+    showDraftLabel: true
+    showHeadingAnchors: true
+    showPagination: true
+    showTaxonomies: false
+    showComments: false
+
+  list:
+    showBreadcrumbs: false
+    showTableOfContents: false
+    showSummary: false
+    showCards: false
+    groupByYear: true
+    constrainItemsWidth: false
+
+  taxonomy:
+    showTermCount: true
+
+  term:
+    groupByYear: true
 
 menu:
   main:

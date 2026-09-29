@@ -1,0 +1,10 @@
+/* "Show More" button — black border in light mode, white in dark mode.
+   The theme styles this button with .prose and .border classes, which is
+   specific enough to target without touching the theme. */
+button.prose.border {
+  border-color: #000;
+}
+
+html.dark button.prose.border {
+  border-color: #fff;
+}
