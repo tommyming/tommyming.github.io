@@ -1,26 +1,37 @@
 baseURL: https://mingtommy.dev/
 theme: hugo-blog-awesome
-locale: en-us
 defaultContentLanguage: en-us
 title: Tommy Han
-description: Personal Blog
+
+languages:
+  en-us:
+    label: English
+    locale: en-US
+    weight: 1
+
+markup:
+  highlight:
+    noClasses: false
 
 params:
+  sitename: Tommy Han
   defaultColor: auto
-  rss: true
-  favicon:
-    png: favicon/favicon.png
-    svg: favicon/favicon.svg
-    ico: favicon/favicon.ico
-    apple: favicon/apple-touch-icon.png
-    manifest: favicon/site.webmanifest
+  description: Personal Blog
+  mainSections:
+    - posts
+  rssFeedDescription: summary
   author:
-    avatar: https://github.com/tommyming.png
+    avatar: avatar.png
     intro: Tommy Han
-    name: A Programming Cat
-    description: A personal blog, mostly about code, sometimes photography.
-
-  social:
+    name: Tommy Han
+    description: A Programming Cat. A personal blog, mostly about code, sometimes photography.
+  webmanifest:
+    name: Programming Cat
+    short_name: Programming Cat
+    theme_color: "#ffffff"
+    background_color: "#ffffff"
+    display: standalone
+  socialIcons:
     - name: github
       url: https://github.com/tommyming
 
@@ -28,13 +39,16 @@ menu:
   main:
     - identifier: coding
       name: Coding
+      pageRef: /categories/coding
       url: /categories/coding/
       weight: 10
     - identifier: cats
       name: Cats
+      pageRef: /categories/cats
       url: /categories/cats/
       weight: 20
     - identifier: streets
       name: Streets
+      pageRef: /categories/streets
       url: /categories/streets/
       weight: 30
