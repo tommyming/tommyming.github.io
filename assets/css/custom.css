@@ -8,3 +8,126 @@ button.prose.border {
 html.dark button.prose.border {
   border-color: #fff;
 }
+
+/* ── Monochrome hover colours ──────────────────────────────────────
+   The theme colours every hover state with the blue primary scale.
+   These overrides replace each one with a monochrome accent:
+   black in light mode, white in dark mode. custom.css is bundled
+   after the theme CSS, so equal-specificity selectors win here. */
+
+/* Text on hover — nav links, social icons, show-more button,
+   scroll-to-top, footer attribution, prev/next article links. */
+.hover\:text-primary-400:hover,
+.hover\:text-primary-500:hover,
+.hover\:text-primary-600:hover,
+.hover\:text-primary-700:hover {
+  color: #000;
+}
+
+.dark\:hover\:text-primary-400:is(.dark *):hover,
+:is(.dark *) .hover\:text-primary-400:hover,
+:is(.dark *) .hover\:text-primary-500:hover,
+:is(.dark *) .hover\:text-primary-600:hover,
+:is(.dark *) .hover\:text-primary-700:hover {
+  color: #fff;
+}
+
+/* Backgrounds on hover — pagination pills and buttons. */
+.hover\:bg-primary-100:hover,
+.hover\:bg-primary-500:hover,
+.hover\:bg-primary-600:hover {
+  background-color: #000;
+}
+
+/* Pagination keeps white text on hover, so its pill stays black in
+   both modes; everything else flips to white in dark mode. */
+:is(.dark *) .hover\:bg-primary-100:hover,
+:is(.dark *) .hover\:bg-primary-500:hover,
+.dark\:hover\:bg-primary-400:is(.dark *):hover,
+.dark\:hover\:bg-primary-700:is(.dark *):hover,
+.dark\:hover\:bg-primary-900:is(.dark *):hover {
+  background-color: #fff;
+}
+
+/* Borders on hover — cards, icon buttons. */
+.hover\:border-primary-300:hover,
+.hover\:border-primary-400:hover {
+  border-color: #000;
+}
+
+.dark\:hover\:border-primary-700:is(.dark *):hover,
+:is(.dark *) .hover\:border-primary-300:hover,
+:is(.dark *) .hover\:border-primary-400:hover {
+  border-color: #fff;
+}
+
+/* Underline tint on hover — footer links, article titles. */
+.hover\:decoration-primary-400:hover {
+  text-decoration-color: #000;
+}
+
+:is(.dark *) .hover\:decoration-primary-400:hover {
+  text-decoration-color: #fff;
+}
+
+.decoration-primary-500 {
+  text-decoration-color: #000;
+}
+
+:is(.dark *) .decoration-primary-500 {
+  text-decoration-color: #fff;
+}
+
+/* Card group-hover accents. */
+.group-hover\:text-primary-500:is(:where(.group):hover *) {
+  color: #000;
+}
+
+:is(.dark *) .group-hover\:text-primary-500:is(:where(.group):hover *) {
+  color: #fff;
+}
+
+.group-hover\:ring-primary-500:is(:where(.group):hover *) {
+  --tw-ring-color: #000;
+}
+
+:is(.dark *) .group-hover\:ring-primary-500:is(:where(.group):hover *) {
+  --tw-ring-color: #fff;
+}
+
+.hover\:shadow-primary-500\/10:hover {
+  --tw-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Theme helper classes used by the header icons, logo and menu. */
+@media (hover: hover) {
+  .bf-icon-color-hover:hover {
+    color: #000;
+  }
+
+  .bf-icon-color-hover:is(.dark *):hover {
+    color: #fff;
+  }
+
+  .bf-border-color-hover:hover {
+    border-color: #000;
+  }
+
+  .bf-border-color-hover:is(.dark *):hover {
+    border-color: #fff;
+  }
+}
+
+/* Heading anchor "#" links (revealed on hover). */
+.text-primary-300 {
+  color: rgba(var(--color-neutral-400), 1);
+}
+
+/* In-article links. */
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: #000;
+}
+
+html.dark .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: #fff;
+}
