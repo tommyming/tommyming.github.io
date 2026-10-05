@@ -18,6 +18,7 @@ languages:
         image: avatar.png
         bio: A personal blog, mostly about code, sometimes photography.
         links:
+          - email: contact@mingtommy.dev
           - github: https://github.com/tommyming
 
 markup:
