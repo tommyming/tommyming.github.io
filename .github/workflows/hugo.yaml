@@ -10,6 +10,13 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Runs hourly to release scheduled posts. Posts with a future front matter
+  # `date` (and `draft = false`) are kept hidden by Hugo until that time
+  # passes; the check job below triggers a rebuild only when a post has
+  # become due since the last deployment.
+  schedule:
+    - cron: "17 * * * *" # hourly, at an off-peak minute (UTC)
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -28,8 +35,47 @@ defaults:
     shell: bash
 
 jobs:
+  # Release check job (scheduled runs only): skip the build entirely when no
+  # post has reached its release time since the last deployment.
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: read
+    outputs:
+      due: ${{ steps.check.outputs.due }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Check for posts due for release
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Pushes and manual runs always build; only scheduled runs are gated.
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          LAST_DEPLOY=$(gh api \
+            "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=1" \
+            --jq '.[0].created_at // empty')
+          export LAST_DEPLOY
+
+          DUE_POSTS=$(python3 .github/scripts/check_pending_posts.py)
+          if [ -n "$DUE_POSTS" ]; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            echo "Posts due for release:"
+            echo "$DUE_POSTS"
+          else
+            echo "No posts due for release; skipping build."
+          fi
+
   # Build job
   build:
+    needs: check
+    if: needs.check.outputs.due == 'true'
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.163.2
