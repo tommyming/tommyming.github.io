@@ -2,7 +2,7 @@
 title = "Why Apple won't make their APIs(some) backward compatible? (Part 2)"
 summary = "Why ABI stable makes this happen, and how we should react to do better."
 date = 2026-10-06T16:00:00+08:00
-draft = true
+draft = false
 categories = ['coding']
 +++
 
@@ -57,9 +57,7 @@ Sounds weird? Well, it is actually one of the biggest milestones in Swift histor
 
 Before Swift 5, every Swift app bundled its own copy of the Swift runtime. Your app, my app, every app on the store — all carrying the same runtime, again and again. ABI stability made it safe to move that runtime into the OS, and let every app share one single copy.
 
-This is also how the modern Apple framework stack is built: `SwiftUI`, `Combine`, `Observation` they are compiled into the OS image, living in `/System/Library/Frameworks`. 
-
-(Screenshot here.)
+This is also how the modern Apple framework stack is built: `SwiftUI`, `Combine`, `Observation` they are compiled into the OS image, living in `/System/Library/Frameworks` (You can try to discover your simulator!). 
 
 #### And here comes the problem: there is no App Store for `SwiftUI`!
 
@@ -81,7 +79,7 @@ Now we know where the frameworks physically live. Next question: if the will exi
 
 Let's clear a misunderstanding first: **this is not an issue of the Swift compiler.** The compiler side is completely solved — availability attributes, compile-time diagnostics, `#available` runtime checks, all of them work fine. If you call an iOS 26 API under an iOS 18 target, Xcode stops you politely:
 
-(Screenshot slot: Xcode availability error, e.g. "'immediate' is only available in iOS 26 or newer".)
+![glass-effect only available in iOS 26+](https://images.mingtommy.dev/iOS26-only.png)
 
 The hard part sits one layer below: **where does the implementation live at runtime?** For an API to work on an old OS, there are only two worlds it can live in:
 
@@ -100,17 +98,7 @@ OK, time to bring back our main character.
 
 Quick context (and if you missed it, the [SwiftLee article](https://www.avanderlee.com/concurrency/immediate-tasks-in-swift-concurrency-explained/) is here): the everyday `Task { }` does not start when you write it. The operation gets enqueued, hops over to the cooperative pool (or back to the actor), and only then runs. Most of the time you never notice — until you do UI work on `MainActor` and lose a frame waiting for the hop.
 
-`Task.immediate` is Apple's answer for exactly that:
-
-(Paste the declaration of `Task.immediate` from the SDK / swiftinterface here.)
-
-The behavior: the operation starts executing **right away, on the current executor**, and keeps running until its first suspension point. No enqueue hop, no lost frame. It is one of those APIs where you go "wait, we didn't have this before?"
-
-And which OS do you need for it?
-
-(Screenshot slot: the docs page showing `Task.immediate` with "iOS 26+" availability — same style as Part 1's screenshot.)
-
-Yes. iOS 26. The fix for an annoyance that has existed since the iOS 13 days of concurrency, shipped for the newest OS only. Sound familiar? Not Again?
+This is the problem I faced a few months back, when trying to update my SwiftUI code.
 
 ---
 
@@ -122,7 +110,7 @@ Remember the two worlds above. When Swift Concurrency got back-ported to iOS 13,
 
 Then there is the compiler trick. Put `@backDeployed` on a declaration, and instead of calling the OS copy directly, the call goes through a small stub emitted into that shim library. The stub checks at runtime: does *this* OS already have the real implementation? Great, jump to it. It doesn't? No problem, use the copy shipped inside the app.
 
-(Screenshot slot: the evidence you found — declarations carrying back-deployment attributes inside the concurrency shims / swiftinterface, e.g. `@backDeployed(before: ...)` on `Task` APIs.)
+![taskGroup has backDeployed](https://images.mingtommy.dev/taskgroup-backdeploy.png)
 
 And here is the part that makes me sigh: plenty of concurrency APIs did ride this road — which is exactly why `async/await` works on iOS 13 devices today. The machinery exists, it is proven, and it ships with every Xcode.
 
@@ -155,6 +143,8 @@ The ABI story explains why new APIs default to new OSes. The shims story proves 
 Which is why the community part matters. Remember the [forums thread](https://forums.swift.org/t/will-swift-concurrency-deploy-back-to-older-oss/49370?page=3) from Part 1? Developers pushed, and `async/await` landed on iOS 13. That was not a gift, that was pressure. If you want `Task.immediate` (or your own favorite iOS-26-only API) on older OSes: file feedbacks, reply on the forums, write about it. It works, and there are receipts.
 
 The findings were genuinely fun to dig into — and if I missed something, or you know why `Task.immediate` skipped the shims, my inbox is open.
+
+---
 
 I hope to write some more about compilers, different programming languages, or maybe Machine Learning Compilers (which I did a talk at COSCUP this august), and prob something about AI!
 
