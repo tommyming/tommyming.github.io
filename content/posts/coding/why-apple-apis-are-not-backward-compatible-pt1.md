@@ -3,8 +3,10 @@ title = "Why Apple won't make their APIs(some) backward compatible? (Part 1)"
 summary = "Talking about stuff behind the scenes, and API design philosophy why this will happen."
 date = 2026-05-04T16:00:00+08:00
 draft = false
-categories = ['blog']
+categories = ['tech-studies']
 +++
+
+This is part of a series: [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}) · [Part 2]({{< ref "why-apple-apis-are-not-backward-compatible-pt2.md" >}}).
 
 ## Introduction
 Suppose you have built an app, no matter vibe-coded with AI or manually. You set the supported version to iOS 26, submit to app store. The app released and received some positive reviews.
@@ -89,6 +91,6 @@ Although not all the APIs/functions can be back-deployed, this is already a good
 
 After finishing all the history and stuff, let's make a pause here. You can find a lot more newer APIs that are not supporting older versions.
 
-I will talk about that in the next episode, and my `Task.immediate` case!
+I will talk about that in the [next episode]({{< ref "why-apple-apis-are-not-backward-compatible-pt2.md" >}}), and my `Task.immediate` case!
 
 Stay in touch!

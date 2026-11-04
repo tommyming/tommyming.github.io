@@ -3,8 +3,10 @@ title = "Why Apple won't make their APIs(some) backward compatible? (Part 2)"
 summary = "Why ABI stable makes this happen, and how we should react to do better."
 date = 2026-10-06T16:00:00+08:00
 draft = false
-categories = ['blog']
+categories = ['tech-studies']
 +++
+
+This is part of a series: [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}) · [Part 2]({{< ref "why-apple-apis-are-not-backward-compatible-pt2.md" >}}).
 
 ## Introduction
 Long awaited **Part 2!**
@@ -24,14 +26,14 @@ Backward compatibility is **mostly a choice, not a technical limit**.
  
 The machinery already exists: `@backDeployed` (SE-0376) + back-deployment shims shipped inside your app — that's exactly how Swift Concurrency reached iOS 13. 
 
-**Community pressure works** — the forums thread from Part 1 is the proof. Want `Task.immediate` / new APIs on older OSes? File feedbacks, speak up.
+**Community pressure works** — the forums thread from [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}) is the proof. Want `Task.immediate` / new APIs on older OSes? File feedbacks, speak up.
 
 ---
 
 ## Let's do a Recap!
 > Since it has been several months since part 1 released.
 
-In part 1, we have started discussion from my use-case: `Task.immediate` is only available starting from iOS 26.
+In [part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}), we have started discussion from my use-case: `Task.immediate` is only available starting from iOS 26.
 I tried to research about the other examples, which I found out a lot of APIs from Apple, that are useful, are not actually back-deployed. (E.g. SwiftUI `WebView` is iOS 26+, `NavigationStack`/`Observation` locked behind new OS versions too.)
 
 But, we also see some of the APIs are getting back-deployed! The most famous one is `Swift Concurrency`, which most of you would know. It got back-deployed to iOS 13, which is definitely a good thing back in the days.
@@ -88,7 +90,7 @@ The hard part sits one layer below: **where does the implementation live at runt
 
 Option 2 is technically fine, but it is not free. Every back-deployed API has to behave the same across a pile of runtimes — iOS 13, 15, 17, 26... — and every combination is a slot in the testing matrix, plus bugs that only reproduce on the old runtimes. Multiply that by *every* API Apple could back-deploy, *every* year, forever.
 
-And this is why I keep saying it is mostly a choice: the mechanism already exists, standing in plain sight — `@backDeployed` ([SE-0376](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0376-function-back-deployment.md)), the same one we met in Part 1. The compiler supports it. The toolchain supports it. Whether an API gets to ride it is a policy and resource decision, not a technical limit.
+And this is why I keep saying it is mostly a choice: the mechanism already exists, standing in plain sight — `@backDeployed` ([SE-0376](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0376-function-back-deployment.md)), the same one we met in [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}). The compiler supports it. The toolchain supports it. Whether an API gets to ride it is a policy and resource decision, not a technical limit.
 
 ---
 
@@ -140,7 +142,7 @@ It is not "Apple can't". It is "Apple (so far) chose not to".
 
 The ABI story explains why new APIs default to new OSes. The shims story proves the escape hatch exists and works. Both are true at the same time, and sitting between them is just... decisions.
 
-Which is why the community part matters. Remember the [forums thread](https://forums.swift.org/t/will-swift-concurrency-deploy-back-to-older-oss/49370?page=3) from Part 1? Developers pushed, and `async/await` landed on iOS 13. That was not a gift, that was pressure. If you want `Task.immediate` (or your own favorite iOS-26-only API) on older OSes: file feedbacks, reply on the forums, write about it. It works, and there are receipts.
+Which is why the community part matters. Remember the [forums thread](https://forums.swift.org/t/will-swift-concurrency-deploy-back-to-older-oss/49370?page=3) from [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}})? Developers pushed, and `async/await` landed on iOS 13. That was not a gift, that was pressure. If you want `Task.immediate` (or your own favorite iOS-26-only API) on older OSes: file feedbacks, reply on the forums, write about it. It works, and there are receipts.
 
 The findings were genuinely fun to dig into — and if I missed something, or you know why `Task.immediate` skipped the shims, my inbox is open.
 
