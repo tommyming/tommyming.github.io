@@ -1,0 +1,66 @@
+{{ if .Params.showPagination | default (.Site.Params.article.showPagination | default true) }}
+  {{ $next := false }}
+  {{ $prev := false }}
+  {{ if .Params.series }}
+    {{ $seriesName := strings.ToLower (index .Params.series 0) }}
+    {{ $posts := sort (index site.Taxonomies.series $seriesName) "Params.series_order" }}
+    {{ $seen := false }}
+    {{ range $posts }}
+      {{ if eq .Permalink $.Permalink }}
+        {{ $seen = true }}
+      {{ else if $seen }}
+        {{ if not $next }}
+          {{ $next = . }}
+        {{ end }}
+      {{ else }}
+        {{ $prev = . }}
+      {{ end }}
+    {{ end }}
+  {{ else if or .NextInSection .PrevInSection }}
+    {{ $next = .NextInSection }}
+    {{ $prev = .PrevInSection }}
+    {{ if .Params.invertPagination | default (.Site.Params.article.invertPagination | default false) }}
+      {{ $next = .PrevInSection }}
+      {{ $prev = .NextInSection }}
+    {{ end }}
+  {{ end }}
+  {{ if or $next $prev }}
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span class="flex flex-col">
+          {{ with $prev }}
+            <a
+              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="{{ .RelPermalink }}">
+              <span class="leading-6">
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;{{ .Title | emojify }}
+              </span>
+            </a>
+            {{ if $.Params.showDate | default ($.Site.Params.article.showDate | default true) }}
+              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                {{ partial "meta/date.html" .Date }}
+              </span>
+            {{ end }}
+          {{ end }}
+        </span>
+        <span class="flex flex-col items-end">
+          {{ with $next }}
+            <a
+              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+              href="{{ .RelPermalink }}">
+              <span class="leading-6">
+                {{ .Title | emojify }}&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+              </span>
+            </a>
+            {{ if $.Params.showDate | default ($.Site.Params.article.showDate | default true) }}
+              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+                {{ partial "meta/date.html" .Date }}
+              </span>
+            {{ end }}
+          {{ end }}
+        </span>
+      </div>
+    </div>
+  {{ end }}
+{{ end }}

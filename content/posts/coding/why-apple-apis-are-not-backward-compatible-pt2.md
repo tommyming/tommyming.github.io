@@ -4,9 +4,9 @@ summary = "Why ABI stable makes this happen, and how we should react to do bette
 date = 2026-10-06T16:00:00+08:00
 draft = false
 categories = ['tech-studies']
+series = ["Why Apple APIs aren't backward compatible"]
+series_order = 2
 +++
-
-This is part of a series: [Part 1]({{< ref "why-apple-apis-are-not-backward-compatible-pt1.md" >}}) · [Part 2]({{< ref "why-apple-apis-are-not-backward-compatible-pt2.md" >}}).
 
 ## Introduction
 Long awaited **Part 2!**

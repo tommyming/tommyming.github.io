@@ -25,6 +25,12 @@ markup:
   highlight:
     noClasses: false
 
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+  series: series
+
 params:
   colorScheme: mingtommy
   defaultAppearance: light
@@ -63,6 +69,7 @@ params:
     showPagination: true
     showTaxonomies: false
     showComments: false
+    seriesOpened: true
 
   list:
     showBreadcrumbs: false
