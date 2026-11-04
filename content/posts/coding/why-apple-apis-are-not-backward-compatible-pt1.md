@@ -3,7 +3,7 @@ title = "Why Apple won't make their APIs(some) backward compatible? (Part 1)"
 summary = "Talking about stuff behind the scenes, and API design philosophy why this will happen."
 date = 2026-05-04T16:00:00+08:00
 draft = false
-categories = ['coding']
+categories = ['blog']
 +++
 
 ## Introduction

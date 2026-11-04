@@ -3,7 +3,7 @@ title = "Why Apple won't make their APIs(some) backward compatible? (Part 2)"
 summary = "Why ABI stable makes this happen, and how we should react to do better."
 date = 2026-10-06T16:00:00+08:00
 draft = false
-categories = ['coding']
+categories = ['blog']
 +++
 
 ## Introduction
