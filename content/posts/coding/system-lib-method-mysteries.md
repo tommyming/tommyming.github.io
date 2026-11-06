@@ -1,6 +1,7 @@
 +++
 title = 'Changes of System-Level Library Method Calls in iOS 18.'
-summary = 'Method implementation changes since iOS 18.4 SDK'
+summary = 'Calling libresolv from Swift broke after the iOS 18.4 SDK added an extra pointer. The resolver state now has to be allocated by hand.'
+description = 'Calling libresolv from Swift broke after the iOS 18.4 SDK added an extra pointer. The resolver state now has to be allocated by hand.'
 date = 2025-06-29T21:00:00+08:00
 draft = false
 categories = ['blog']

@@ -1,6 +1,7 @@
 +++
 title = 'I went to try! Swift Tokyo 2025!'
-summary = 'A very good Swift Conference for the community'
+summary = 'Notes from try! Swift Tokyo 2025 at Tachikawa Stage Garden: talks, booths, and three days with the Swift community.'
+description = 'Notes from try! Swift Tokyo 2025 at Tachikawa Stage Garden: talks, booths, and three days with the Swift community.'
 date = 2025-04-14T20:30:00+08:00
 draft = false
 categories = ['blog']

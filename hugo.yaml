@@ -12,7 +12,7 @@ languages:
       displayName: EN
       isoCode: en-US
       dateFormat: 2 Jan 2006
-      description: Personal Blog
+      description: Notes on Swift, Apple platforms, and building software. Sometimes photography.
       author:
         name: Tommy Han
         image: avatar.png
@@ -33,6 +33,12 @@ taxonomies:
 
 params:
   colorScheme: mingtommy
+  enableStructuredBreadcrumbs: true
+  seo:
+    metaDescriptionOrder:
+      - description
+      - summary
+      - site
   defaultAppearance: light
   autoSwitchAppearance: true
   enableSearch: false

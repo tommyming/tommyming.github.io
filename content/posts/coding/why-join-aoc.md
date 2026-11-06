@@ -1,6 +1,7 @@
 +++
 title = 'Why Advent of Code?'
-summary = 'What is Advent of Code, why you should join.'
+summary = 'What Advent of Code is, and why a daily December programming puzzle is worth doing even when the problems are hard.'
+description = 'What Advent of Code is, and why a daily December programming puzzle is worth doing even when the problems are hard.'
 date = 2026-03-22T16:00:00+08:00
 draft = false
 categories = ['blog']

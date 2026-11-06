@@ -1,6 +1,7 @@
 +++
 title = 'What Means a Good First Issue?'
-summary = 'Why there is a label called "good first issue" in GitHub, what does it mean, and how to start your contribution.'
+summary = 'What GitHub’s good first issue label is meant to be, why many of those issues are still hard, and how to start contributing anyway.'
+description = 'What GitHub’s good first issue label is meant to be, why many of those issues are still hard, and how to start contributing anyway.'
 date = 2025-11-22T21:00:00+08:00
 draft = false
 categories = ['blog']

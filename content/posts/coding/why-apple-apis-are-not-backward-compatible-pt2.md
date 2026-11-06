@@ -1,6 +1,7 @@
 +++
 title = "Why Apple won't make their APIs(some) backward compatible? (Part 2)"
-summary = "Why ABI stable makes this happen, and how we should react to do better."
+summary = "Swift ABI stability is why new Apple APIs default to a new OS, and how @backDeployed shims can still ship them to older versions."
+description = "Swift ABI stability is why new Apple APIs default to a new OS, and how @backDeployed shims can still ship them to older versions."
 date = 2026-10-06T16:00:00+08:00
 draft = false
 categories = ['tech-studies']

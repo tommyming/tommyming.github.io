@@ -1,6 +1,7 @@
 +++
-title = 'Apple Watch Download Foundings'
-summary = 'How does Apple Watch Download Stuff?'
+title = 'Apple Watch Download Findings'
+summary = 'Why URLSession downloads on a real Apple Watch fail with a bad file descriptor, and what those watchOS limits actually are.'
+description = 'Why URLSession downloads on a real Apple Watch fail with a bad file descriptor, and what those watchOS limits actually are.'
 date = 2025-01-06T20:30:00+08:00
 draft = false
 categories = ['blog']

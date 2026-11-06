@@ -1,6 +1,7 @@
 +++
 title = 'Humble Beginnings in 2026'
-summary = 'Changes in 2026'
+summary = 'Why I started writing again in 2026, after using AI to search made it too easy to skim a topic and forget it.'
+description = 'Why I started writing again in 2026, after using AI to search made it too easy to skim a topic and forget it.'
 date = 2026-03-06T16:00:00+08:00
 draft = false
 categories = ['blog']
