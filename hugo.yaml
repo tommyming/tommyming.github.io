@@ -61,7 +61,7 @@ params:
     showDate: true
     showDateUpdated: false
     showAuthor: false
-    showReadingTime: false
+    showReadingTime: true
     showWordCount: false
     showBreadcrumbs: false
     showDraftLabel: true
