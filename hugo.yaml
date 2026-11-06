@@ -66,6 +66,8 @@ params:
     showBreadcrumbs: false
     showDraftLabel: true
     showHeadingAnchors: true
+    showReadingProgress: true
+    showTableOfContents: true
     showPagination: true
     showTaxonomies: false
     showComments: false
