@@ -12,11 +12,11 @@ languages:
       displayName: EN
       isoCode: en-US
       dateFormat: 2 Jan 2006
-      description: Notes on Swift, Apple platforms, and building software. Sometimes photography.
+      description: Blog about code and software. Sometimes photography and cats.
       author:
         name: Tommy Han
         image: avatar.png
-        bio: A personal blog, mostly about code, sometimes photography.
+        bio: Blog about code and software. Sometimes photography and cats.
         links:
           - email: contact@mingtommy.dev
           - github: https://github.com/tommyming
