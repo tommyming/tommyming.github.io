@@ -153,12 +153,37 @@ You can imagine Siri Evals as another set of Unit Test, but specifically for Sir
 
 ### Current Constraints
 
-Of course, not everything is completely ready when it is released (and it is even still developer preview!). Therefore there are still some constraints and some problems that are blockers to all of us.
+Siri AI is still a developer preview. A demo can look finished while real use still hits the limits below.
 
-- **Language Constraints**: Currently there are only very few languages are supporting. Some languages e.g. Traditional Chinese, Cantonese, Japanese, and not supported yet. Personally think this is because Foundation Model is not ready for prefill context of these languages.
-- **Feature Constraints**: If your will use Private Cloud Compute, you will still face restrictions when tokens ran out. This is unavoidable, so be sure that your intent’s workload can run purely on-device.
+- **Only a few languages work**: English is the one you can count on. Traditional Chinese, Cantonese, and Japanese are not supported yet. A sentence that mixes English and Chinese often fails too, even when the same request works in English. The on-device model is just not ready for those languages yet. Your code can be correct and still never run, because Siri never connects the sentence to your action.
 
-→ I think there should be some weird problems when I am trying to build the demo app. I can also list them down here.
+- **A translated title does not add a language**: A Chinese show name in your list does not fix this. Translating the intent title and description does not turn the language on either. If most of your users do not speak English, treat Siri AI as an English-only beta, and keep Shortcuts for everyone else.
+
+- **Build for the phone, not the cloud**: Design for the on-device model. Private Cloud Compute is only a fallback, and it still has a usage limit. When that limit runs out, the request stops. It does not just get slower, and your app cannot raise the limit.
+
+- **Keep each action small**: Do the search inside your app. Give Siri a short result: one show, a short list, or one episode. Do not ask it to read the whole library in one turn. A long skill plus a big list of shows is the first thing that leaves the phone and hits the cloud limit. Also return a short line Siri can say back. A huge result, or a silent success, still leaves the user unsure if the episode started.
+
+- **Siri only sees actions you turn on**: An intent that already works in Shortcuts stays hidden until you mark it for Siri AI. Using the feature inside the app does not count. A vague title is almost as bad. If two intents both sound like "search podcasts," Siri picks one and goes. The user sees the wrong action, not an error.
+
+- **Use words a person would say**: Siri will not turn "the show I listened to yesterday" into a raw id unless you show it how that phrase maps to a show. If a field can be left empty, Siri may guess instead of asking. Make risky fields required, and stop if the value is not one of yours.
+
+- **Do not send your whole library**: Siri does not have your database. It only sees your tools, your skill text, and what you send back. "Play the last episode" fits. Pasting every show and episode does not. The answers get worse, not faster. Ten episodes is a result. Ten shows with their full history is too much text.
+
+- **Say what fuzzy words mean**: "Closest" can mean location, popularity, or a similar topic. If you do not define it, Siri will guess. Pick one meaning in your code: similar topic, same category, or a tag you chose. If the steps are search, then the user picks, then play, write that order in the skill. Otherwise Siri may skip ahead and play the wrong episode.
+
+- **The spoken name and the id must match**: Give each show a short name a person would say, and a stable id your code looks up. If those two drift apart, the next step plays a different episode from the one the user just agreed to.
+
+- **Preview builds change**: Xcode 27.3 and iOS 27.3 are still previews. What worked last week can fail in the next beta. The usual gap is not broken code. It is the gap between "my action runs when I call it" and "Siri picks that action from a sentence." A passing test does not prove the second one. Run the check again after each beta before you blame your code.
+
+- **Say clearly when a value is missing**: Sometimes the action runs, but the show name comes in empty because Siri did not match what the user said. Tell the user that. Do not play a random episode to fill the gap.
+
+- **Do not trust the confirm step yet**: In the preview, Siri may ask to confirm when you did not ask for that, or skip a confirm you expected. For buy, send, or delete, put the confirm in your own code.
+
+- **Examples teach more than descriptions**: A skill can read well and still pick the wrong action. Siri follows the examples more than the paragraph above them. One bad example teaches the wrong action faster than a careful description can fix. "Play last episode" and "play latest episode" will get mixed up if the wording overlaps. The demo looks broken even when both actions are correct.
+
+- **Do not promise this replaces the app**: Not yet. Do not advertise a language Siri cannot take. Phones that cannot run the on-device model never get this path, so Shortcuts still has to work there. Actions that must be right every time need a confirm you control. An action that works today can miss in the next beta.
+
+The integration is still worth doing. Keep each action useful inside these limits, and leave the in-app path for anything that does not fit.
 
 ### Summary
 
@@ -184,7 +209,7 @@ Documentation is in the link below:
 
 https://developer.apple.com/documentation/sirievaluations
 
-For recent months, agents are way more capable than few years ago, which they are generate more accurate code base on our prompts, or from the AI workflow. But there is still one thing remains (and we always need to do even when LLMs are not that capable yet): how can we check if the result is what we expect?
+For recent months, agents are way more capable than few years ago, which they are generate more accurate code base on our prompts, or from the AI workflow. But there is still one thing remains (and we always need to do even when LLMs are not that capable yet): how can we check if the result is what we are expecting?
 
 In proper science problem solving cycle, we will first identify the problem, then implement the solution, and at last, we need to evaluate if the solution can meet the goal.
 
